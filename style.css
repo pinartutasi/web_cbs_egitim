@@ -1,0 +1,138 @@
+/* Genel */
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #12131a;
+  --muted: rgba(18,19,26,.65);
+  --border: rgba(18,19,26,.10);
+  --shadow: 0 14px 40px rgba(18,19,26,.10);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a{ color: inherit; }
+
+/* Üst başlık */
+.header{
+  max-width: 960px;
+  margin: 22px auto 10px;
+  padding: 18px 16px;
+}
+
+.title{
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: .2px;
+}
+
+.subtitle{
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+/* Menü */
+.nav{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav a{
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--border);
+  transition: transform .18s ease, background .18s ease;
+}
+
+.nav a:hover{
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+/* İçerik kartı */
+.card{
+  max-width: 960px;
+  margin: 0 auto 22px;
+  padding: 18px 16px;
+}
+
+.panel{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+h2{
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+p{ margin: 10px 0; color: var(--text); }
+
+/* ✅ Ödev şartı: CSS animasyon (rozet) */
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%   { transform: scale(1);   opacity: .92; }
+  50%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1);   opacity: .92; }
+}
+
+/* Harita kutusu */
+.map{
+  margin-top: 12px;
+  height: 420px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* Liste */
+ul{ margin: 10px 0 0; padding-left: 18px; }
+li{ margin: 6px 0; }
+
+/* Footer */
+.footer{
+  max-width: 960px;
+  margin: 0 auto 26px;
+  padding: 0 16px;
+  color: var(--muted);
+  text-align: center;
+}
+.dark{
+  background: #121212;
+  color: white;
+}
+
+.dark .panel{
+  background: #1e1e1e;
+}
+
+

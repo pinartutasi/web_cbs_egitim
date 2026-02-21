@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pınar - Hobilerim</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="title">Hobilerim</h1>
+    <p class="subtitle">Yürüyüş, keşif ve şehirde yeni noktalar bulmak</p>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html">Hakkımda</a>
+    <a href="hobbies.html">Hobilerim</a>
+    <a href="contact.html">İletişim</a>
+  </nav>
+
+  <main class="card">
+    <section class="panel">
+      <h2>Sevdiklerim</h2>
+      <p>
+        Boş zamanlarımda yeni yerler keşfetmeyi ve yeni tatlar denemeyi seviyorum.
+        Bu sayfada İstanbul’da sevdiğim bazı noktaları harita üzerinde işaretledim.
+      </p>
+
+      <h2>İstanbul'da Favori Noktalarım</h2>
+      <div id="harita" class="map"></div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Pınar</footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Haritayı İstanbul/Beşiktaş çevresine odakla
+    var map = L.map('harita').setView([41.0450, 29.0200], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'OpenStreetMap'
+    }).addTo(map);
+
+    // 🚶‍♀️ Yürüyüş rotası - Ortaköy yönü (işaret noktası)
+    L.marker([41.0470, 29.0260]).addTo(map)
+      .bindPopup('Yürüyüş rotası → Ortaköy 🌊');
+
+    // ☕ Kahve molası - Yıldız Parkı
+    L.marker([41.0489, 29.0116]).addTo(map)
+      .bindPopup('Kahve molası → Yıldız Parkı ☕');
+
+    // 🌇 Manzara noktası - Ulus Parkı
+    L.marker([41.0607, 29.0313]).addTo(map)
+      .bindPopup('Manzara noktası → Ulus Parkı 🌇');
+  </script>
+  <script>
+
+var map = L.map('harita').setView([41.0450, 29.0200], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'OpenStreetMap'
+}).addTo(map);
+
+
+// Noktalar
+
+var yildiz = [41.0489, 29.0116];
+var ortakoy = [41.0470, 29.0260];
+var ulus = [41.0607, 29.0313];
+
+
+L.marker(yildiz).addTo(map)
+.bindPopup('Kahve molası → Yıldız Parkı ☕');
+
+L.marker(ortakoy).addTo(map)
+.bindPopup('Yürüyüş rotası → Ortaköy 🌊');
+
+L.marker(ulus).addTo(map)
+.bindPopup('Manzara noktası → Ulus Parkı 🌇');
+
+
+// Rota çizgisi
+
+var rota = [
+  yildiz,
+  ortakoy,
+  ulus
+];
+
+L.polyline(rota).addTo(map)
+.bindPopup("Favori yürüyüş rotam 🚶‍♀️");
+
+
+// 📍 Konum butonu
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+  var lat = position.coords.latitude;
+  var lon = position.coords.longitude;
+
+  L.marker([lat, lon]).addTo(map)
+  .bindPopup("Benim konumum 📍");
+
+});
+
+</script>
+
+</script>
+
+</body>
+</html>
+
+

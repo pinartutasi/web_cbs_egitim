@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <title>İletişim</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #harita {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>İletişim</h1>
+
+<p>Benimle iletişime geçebilirsiniz:</p>
+
+<ul>
+    <li>Ad: Pınar Tutaşı Dilaver</li>
+    <li>Meslek: Şehir Plancısı</li>
+    <li>Kurum: Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</li>
+    <li>Görev Yeri: Şırnak Çevre Şehircilik ve İklim Değişikliği İl Müdürlüğü</li>
+    <li>Email: 
+<a href="mailto:pinar.tutasi@csb.gov.tr">
+pinar.tutasi@csb.gov.tr
+</a>
+</li>
+
+</ul>
+
+<h2>Konum</h2>
+
+<div id="harita"></div>
+
+<a href="index.html">Hakkımda sayfasına geri dön</a>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    
+
+var map = L.map('harita').setView([37.515962715299594, 42.44788191381364], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'OpenStreetMap'
+}).addTo(map);
+
+L.marker([37.515962715299594, 42.44788191381364]).addTo(map)
+    .bindPopup('Şırnak İl Müdürlüğü')
+    .openPopup();
+
+
+</script>
+<h2>Mesaj Gönder</h2>
+
+<form>
+
+<label>Adınız:</label><br>
+<input type="text"><br><br>
+
+<label>Email:</label><br>
+<input type="email"><br><br>
+
+<label>Mesaj:</label><br>
+<textarea rows="4"></textarea><br><br>
+
+<button type="submit">Gönder</button>
+
+</form>
+
+</body>
+
+</html>
+
+
